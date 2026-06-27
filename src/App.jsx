@@ -1,12 +1,17 @@
 import HeaderComponent from "./Header";
 import FooterComponent from "./Footer";
-// import { React, NextJS, Angular } from "./Course";
-// import { car, cars } from "./data";
 import Card from "./Card";
+import { useState } from "react";
 
 export default function App() {
-  const pi = 3.14;
-  let r = 2;
+
+  // let count=10;
+  // function checkCount(){
+  //   console.log(count);
+  //   count++;
+  // }
+
+  const [count,setCount]=useState(0);
 
   return (
     <div className="container">
@@ -14,32 +19,21 @@ export default function App() {
       <main className="p-3">
         <h2>Main</h2>
         <p>Parargraph</p>
-        <p>Parargraph</p>
         <p>Date and Time: {new Date().toLocaleString()}</p>
-        <br />
-        <label>
-          Name : <input type="text" />
-        </label>
-        <label htmlFor="age">Age: </label>
-        <input type="number" id="age" />
-        {/* <button className="btn btn-primary" onClick={() => alert(2 + 3)}>Click</button> */}
-        <p>
-          PI is {pi}, r is {r} and area is {pi * r * r}
-        </p>
-        {/* <hr />
-        <p>{car.name}</p>
-        <p>{cars.length}</p> */}
+
+        {/* <button onClick={checkCount} className="btn btn-primary">Change</button>  <span>{count}</span> */}
+        <button onClick={()=>setCount(count+1)} className="btn btn-primary me-3">Add</button>  
+        <button onClick={()=>setCount(count-1)} className="btn btn-primary me-3">Subtract</button> 
+        <button onClick={()=>setCount(0)} className="btn btn-primary me-3">Reset</button>  <span>{count}</span>
         <hr />
         <h2>Courses Available</h2>
         <p>Here are the available courses:</p>
 
+        <hr />
+
         <div className="row">
           <div className="col-sm-4">
-            <Card
-              course="React with Next"
-              duration={4}
-              trainer="Avinash Malhotra"
-            />
+            <Card course="React with Next" duration={4} trainer="Avinash Malhotra" />
           </div>
           <div className="col-sm-4">
             <Card course="Angular" duration={3} trainer="Avinash Malhotra" />
